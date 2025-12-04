@@ -6,6 +6,7 @@ import (
 
 const charsetLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const charsetNumeric = "0123456789"
+const charsetAlphanumeric = charsetLetters + charsetNumeric
 
 func GenerateNumeric(length int) string {
 	result := make([]byte, length)
@@ -24,4 +25,13 @@ func GenerateLetters(length int) (string, error) {
 	}
 
 	return string(b), nil
+}
+
+func GenerateAlphanumericCode(length int) string {
+	b := make([]byte, length)
+	for i := range b {
+		b[i] = charsetAlphanumeric[rand.Intn(len(charsetAlphanumeric))]
+	}
+
+	return string(b)
 }
