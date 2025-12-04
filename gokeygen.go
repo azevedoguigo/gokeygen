@@ -9,40 +9,28 @@ const charsetLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const charsetNumeric = "0123456789"
 const charsetAlphanumeric = charsetLetters + charsetNumeric
 
-func GenerateNumericKey(length int) string {
-	result := make([]byte, length)
-	for i := range result {
-		result[i] = charsetNumeric[rand.Intn(len(charsetNumeric))]
+func generateKey(charset string, length int) string {
+	bytesArr := make([]byte, length)
+
+	for i := range bytesArr {
+		bytesArr[i] = charset[rand.Intn(len(charset))]
 	}
 
-	return string(result)
+	return string(bytesArr)
+}
+
+func GenerateNumericKey(length int) string {
+	return generateKey(charsetNumeric, length)
 }
 
 func GenerateLettersKey(length int) string {
-	b := make([]byte, length)
-
-	for i := range b {
-		b[i] = charsetLetters[rand.Intn(len(charsetLetters))]
-	}
-
-	return string(b)
+	return generateKey(charsetLetters, length)
 }
 
 func GenerateLettersKeyUppercase(length int) string {
-	b := make([]byte, length)
-
-	for i := range b {
-		b[i] = charsetLetters[rand.Intn(len(charsetLetters))]
-	}
-
-	return strings.ToUpper(string(b))
+	return strings.ToUpper(generateKey(charsetLetters, length))
 }
 
 func GenerateAlphanumericKey(length int) string {
-	b := make([]byte, length)
-	for i := range b {
-		b[i] = charsetAlphanumeric[rand.Intn(len(charsetAlphanumeric))]
-	}
-
-	return string(b)
+	return generateKey(charsetAlphanumeric, length)
 }
