@@ -2,6 +2,7 @@ package gokeygen
 
 import (
 	"math/rand"
+	"strings"
 )
 
 const charsetLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -25,6 +26,16 @@ func GenerateLettersKey(length int) string {
 	}
 
 	return string(b)
+}
+
+func GenerateLettersKeyUppercase(length int) string {
+	b := make([]byte, length)
+
+	for i := range b {
+		b[i] = charsetLetters[rand.Intn(len(charsetLetters))]
+	}
+
+	return strings.ToUpper(string(b))
 }
 
 func GenerateAlphanumericKey(length int) string {
