@@ -42,3 +42,7 @@ func GenerateAlphanumericKey(length int) string {
 func GenerateAlphanumericKeyUppercase(length int) string {
 	return strings.ToUpper(generateKey(charsetAlphanumeric, length))
 }
+
+func GenerateAlphanumericKeyLowecase(length int) string {
+	return strings.ToLower(generateKey(charsetAlphanumeric, length))
+}
