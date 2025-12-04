@@ -1,3 +1,3 @@
-module github.com/azevedoguigo/gokeygen.git
+module github.com/azevedoguigo/gokeygen
 
 go 1.25.4
