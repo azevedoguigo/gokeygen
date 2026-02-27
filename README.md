@@ -22,7 +22,7 @@ Ideal for:
 go get github.com/azevedoguigo/gokeygen
 ```
 
-## Examples
+## Usage Examples
 
 ```go
 package main
