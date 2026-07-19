@@ -52,7 +52,11 @@ func main() {
     key := gokeygen.GenerateAlphanumericKeyUppercase(10)
     fmt.Println(key) //Result: A8K2PL9XQ1
 
-	key := gokeygen.GenerateAlphanumericKeyLowecase(10)
+	key := gokeygen.GenerateAlphanumericKeyLowercase(10)
     fmt.Println(key) //Result: a8k2pl9xq1
 }
 ```
+
+## License
+
+MIT © Guilherme Azevedo

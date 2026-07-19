@@ -2,14 +2,21 @@ package gokeygen
 
 import (
 	"math/rand"
-	"strings"
 )
 
-const charsetLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const charsetLettersLower = "abcdefghijklmnopqrstuvwxyz"
+const charsetLettersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const charsetLetters = charsetLettersLower + charsetLettersUpper
 const charsetNumeric = "0123456789"
 const charsetAlphanumeric = charsetLetters + charsetNumeric
+const charsetAlphanumericLower = charsetLettersLower + charsetNumeric
+const charsetAlphanumericUpper = charsetLettersUpper + charsetNumeric
 
 func generateKey(charset string, length int) string {
+	if length <= 0 {
+		return ""
+	}
+
 	bytesArr := make([]byte, length)
 
 	for i := range bytesArr {
@@ -28,11 +35,11 @@ func GenerateLettersKey(length int) string {
 }
 
 func GenerateLettersKeyUppercase(length int) string {
-	return strings.ToUpper(generateKey(charsetLetters, length))
+	return generateKey(charsetLettersUpper, length)
 }
 
 func GenerateLettersKeyLowercase(length int) string {
-	return strings.ToLower(generateKey(charsetLetters, length))
+	return generateKey(charsetLettersLower, length)
 }
 
 func GenerateAlphanumericKey(length int) string {
@@ -40,9 +47,9 @@ func GenerateAlphanumericKey(length int) string {
 }
 
 func GenerateAlphanumericKeyUppercase(length int) string {
-	return strings.ToUpper(generateKey(charsetAlphanumeric, length))
+	return generateKey(charsetAlphanumericUpper, length)
 }
 
-func GenerateAlphanumericKeyLowecase(length int) string {
-	return strings.ToLower(generateKey(charsetAlphanumeric, length))
+func GenerateAlphanumericKeyLowercase(length int) string {
+	return generateKey(charsetAlphanumericLower, length)
 }
